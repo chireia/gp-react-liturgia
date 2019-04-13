@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'antd/dist/antd.css'
+import { observer } from 'mobx-react-lite'
+import React from 'react'
+import Routes from './routes'
+import { useStore } from './store/helpers'
 
-class App extends Component {
-  render() {
+const App = observer(() => {
+  const { isLoged } = useStore('authStore')
+
+  if (!isLoged) {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <>
+        Loga ai
+        <Routes />
+      </>
+    )
+  } else {
+    return (
+      <>
+        Sou o App
+        <Routes />
+      </>
+    )
   }
-}
+})
 
-export default App;
+export default App
