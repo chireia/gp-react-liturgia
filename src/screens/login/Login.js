@@ -1,40 +1,131 @@
+import { Form, Input, Row, Button } from 'antd'
+import { Formik } from 'formik'
 import { observer } from 'mobx-react-lite'
-import React, { useState } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
+import * as Yup from 'yup'
 import { useStore } from '../../store/helpers'
+import './Login.scss'
 
-const Login = observer(() => {
-  const { login, isLoged } = useStore('authStore')
-  const [formValues, setFormValues] = useState({
-    user: '',
-    pin: ''
-  })
+const Login = withRouter(
+  observer(props => {
+    const { login, isLoged, isLoading } = useStore('authStore')
+    // const [formValues, setFormValues] = useState({
+    //   user: '',
+    //   pin: ''
+    // })
 
-  function handleUser(e) {
-    setFormValues({ ...formValues, user: e.target.value })
-  }
+    const initialValues = {
+      user: undefined,
+      pin: undefined
+    }
 
-  function handlePin(e) {
-    setFormValues({ ...formValues, pin: e.target.value })
-  }
+    // function handleUser(e) {
+    //   setFormValues({ ...formValues, user: e.target.value })
+    // }
 
-  function handleSubmit() {
-    login(formValues)
-  }
+    // function handlePin(e) {
+    //   setFormValues({ ...formValues, pin: e.target.value })
+    // }
 
-  return (
-    <>
-      {isLoged ? (
-        <Redirect to={'/'} />
-      ) : (
-        <div>
-          <input onChange={handleUser} value={formValues.user} />
-          <input onChange={handlePin} value={formValues.pin} />
-          <button onClick={handleSubmit}>Asda</button>
+    // function handleSubmit() {
+    //   login(formValues)
+    // }
+
+    useEffect(() => {
+      if (isLoged) props.history.push('/')
+    }, [isLoged])
+
+    return (
+      <section>
+        <div className="img-holder">
+          <img src={require('../../assets/images/igreja.jpg')} alt="" />
+          <span className="liturgia">Liturgia</span>
+          <span>Digite suas credênciais para acessar ao sistema</span>
         </div>
-      )}
-    </>
-  )
+
+        <div className="form-holder">
+          <Formik
+            initialValues={initialValues}
+            onSubmit={values => login(values)}
+            validationSchema={LoginSchema}
+            validateOnBlur
+          >
+            {({
+              handleSubmit,
+              handleBlur,
+              handleChange,
+              errors,
+              touched,
+              values
+            }) => {
+              return (
+                <Form onSubmit={handleSubmit} className='form'>
+                  <Row>
+                    <Form.Item
+                      // label="Usuário"
+                      required
+                      validateStatus={
+                        errors.user && touched.user ? 'error' : undefined
+                      }
+                      help={touched.user && errors.user}
+                    >
+                      <Input
+                        id="user"
+                        placeholder="Digite seu usuário"
+                        value={values.user}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                    </Form.Item>
+                  </Row>
+                  <Row>
+                    <Form.Item
+                      // label="Senha"
+                      required
+                      validateStatus={
+                        errors.pin && touched.pin ? 'error' : undefined
+                      }
+                      help={touched.pin && errors.pin}
+                    >
+                      <Input
+                        id="pin"
+                        type="password"
+                        placeholder="Digite sua Senha"
+                        value={values.pin}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                      />
+                    </Form.Item>
+                  </Row>
+                  <Form.Item className='btn-holder'>
+                    <Button
+                      className='form__btn'
+                      type="primary"
+                      htmlType="submit"
+                      loading={isLoading}
+                    >
+                      Login
+                    </Button>
+                  </Form.Item>
+                </Form>
+              )
+            }}
+          </Formik>
+        </div>
+      </section>
+      // <div>
+      //   <input onChange={handleUser} value={formValues.user} />
+      //   <input onChange={handlePin} value={formValues.pin} />
+      //   <button onClick={handleSubmit}>Asda</button>
+      // </div>
+    )
+  })
+)
+
+const LoginSchema = Yup.object().shape({
+  user: Yup.string().required('Usuário obrigatório'),
+  pin: Yup.string().required('Senha Obrigatória')
 })
 
 export default Login

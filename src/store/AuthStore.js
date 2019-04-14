@@ -1,40 +1,53 @@
-
-import { action, observable, decorate } from 'mobx'
-import { users } from './users'
 import { message } from 'antd'
+import { action, decorate, observable } from 'mobx'
+import { getUsers } from '../shared/ServerApi'
 
 export default class AuthStore {
   // Status
-  userList = users
+  userList = {}
   isLoged = localStorage.getItem('isLoged')
-  logedUser = ''
+  logedUser = localStorage.getItem('usarName')
+  isLoading = false
+
+  constructor() {
+    getUsers().then(res => {
+      this.userList = res
+    })
+  }
 
   // Actions
-  login = formValues => {
-    Object.entries(this.userList).forEach(([key, value]) => {
-      if (formValues.user === value.user && formValues.pin === value.pin) {
-        message.success('Usuário Logado')
-        this.isLoged = true
-        localStorage.setItem('isLoged', true)
-        this.logedUser = value.userName
-      }
+  login = async formValues => {
+    this.isLoading = true
+    this.logedUser = Object.values(this.userList).find(user => {
+      return user.user === formValues.user && user.pin === formValues.pin
     })
-    if(!this.isLoged) {
-      message.error('Usuário ou PIN errados')
+    if (!this.logedUser) {
+      message.error('Usuário ou PIN incorretos')
+      localStorage.removeItem('isLoged')
+      this.isLoged = false
+      return
     }
+
+    await setTimeout(() => {
+      message.success('Logado com sucesso')
+      localStorage.setItem('isLoged', true)
+      this.isLoged = true
+      this.isLoading = false
+    }, 2000)
   }
 
   logoff = () => {
     localStorage.removeItem('isLoged')
     this.isLoged = localStorage.getItem('isLoged')
-    console.log(this.isLoged);
-    
+    console.log(this.isLoged)
   }
 }
+
 decorate(AuthStore, {
   userList: observable,
   isLoged: observable,
   logedUser: observable,
+  isLoading: observable,
   login: action,
   logoff: action
 })

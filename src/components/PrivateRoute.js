@@ -1,6 +1,6 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
+import React from 'react'
+import { Redirect, Route } from 'react-router-dom'
 import { useStore } from '../store/helpers'
 
 const PrivateRoute = observer(({ component: Component, ...rest }) => {

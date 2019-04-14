@@ -10,18 +10,16 @@ const App = observer(() => {
   if (!isLoged) {
     return (
       <>
-        Loga ai
-        <Routes />
-      </>
-    )
-  } else {
-    return (
-      <>
-        Sou o App
         <Routes />
       </>
     )
   }
+  return (
+    <>
+      Sou o App
+      <Routes />
+    </>
+  )
 })
 
 export default App

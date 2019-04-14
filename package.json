@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.16.2",
+    "firebase": "^5.9.4",
     "mobx": "^5.9.4",
     "mobx-react-lite": "^1.2.0",
     "react": "^16.8.6",

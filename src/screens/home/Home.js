@@ -8,7 +8,7 @@ export const Home = observer(() => {
   return (
     <>
       Home
-      <Button onClick={() => logoff()}>Test</Button>
+      <Button onClick={() => logoff()}>Sair</Button>
     </>
   )
 })
