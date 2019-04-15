@@ -6,7 +6,7 @@ export default class AuthStore {
   // Status
   userList = {}
   isLoged = localStorage.getItem('isLoged')
-  logedUser = localStorage.getItem('usarName')
+  userName = localStorage.getItem('userName')
   isLoading = false
 
   constructor() {
@@ -18,19 +18,22 @@ export default class AuthStore {
   // Actions
   login = async formValues => {
     this.isLoading = true
-    this.logedUser = Object.values(this.userList).find(user => {
+    const logedUser = await Object.values(this.userList).find(user => {
       return user.user === formValues.user && user.pin === formValues.pin
     })
-    if (!this.logedUser) {
+    if (!logedUser) {
       message.error('Usuário ou PIN incorretos')
       localStorage.removeItem('isLoged')
+      localStorage.removeItem('userName')
       this.isLoged = false
+      this.isLoading = false
       return
     }
 
     await setTimeout(() => {
       message.success('Logado com sucesso')
       localStorage.setItem('isLoged', true)
+      localStorage.setItem('userName', logedUser.userName)
       this.isLoged = true
       this.isLoading = false
     }, 2000)
@@ -46,7 +49,7 @@ export default class AuthStore {
 decorate(AuthStore, {
   userList: observable,
   isLoged: observable,
-  logedUser: observable,
+  userName: observable,
   isLoading: observable,
   login: action,
   logoff: action
