@@ -16,33 +16,31 @@ export default class AuthStore {
   }
 
   // Actions
-  login = async formValues => {
+  login = formValues => {
     this.isLoading = true
-    const logedUser = await Object.values(this.userList).find(user => {
+    const logedUser = Object.values(this.userList).find(user => {
       return user.user === formValues.user && user.pin === formValues.pin
     })
     if (!logedUser) {
       message.error('Usuário ou PIN incorretos')
-      localStorage.removeItem('isLoged')
-      localStorage.removeItem('userName')
       this.isLoged = false
       this.isLoading = false
       return
     }
 
-    await setTimeout(() => {
+    setTimeout(() => {
       message.success('Logado com sucesso')
-      localStorage.setItem('isLoged', true)
       localStorage.setItem('userName', logedUser.userName)
+      localStorage.setItem('isLoged', true)
       this.isLoged = true
       this.isLoading = false
     }, 2000)
   }
 
   logoff = () => {
+    this.isLoged = false
     localStorage.removeItem('isLoged')
-    this.isLoged = localStorage.getItem('isLoged')
-    console.log(this.isLoged)
+    localStorage.removeItem('userName')
   }
 }
 
