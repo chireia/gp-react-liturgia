@@ -10,115 +10,96 @@ import './Login.scss'
 const Login = withRouter(
   observer(props => {
     const { login, isLoged, isLoading } = useStore('authStore')
-    // const [formValues, setFormValues] = useState({
-    //   user: '',
-    //   pin: ''
-    // })
 
     const initialValues = {
       user: undefined,
       pin: undefined
     }
 
-    // function handleUser(e) {
-    //   setFormValues({ ...formValues, user: e.target.value })
-    // }
-
-    // function handlePin(e) {
-    //   setFormValues({ ...formValues, pin: e.target.value })
-    // }
-
-    // function handleSubmit() {
-    //   login(formValues)
-    // }
-
     useEffect(() => {
       if (isLoged) props.history.push('/')
     }, [isLoged])
 
     return (
-      <section>
-        <div className="img-holder">
-          <img src={require('../../assets/images/igreja.jpg')} alt="" />
-          <span className="liturgia">Liturgia</span>
-          <span>Digite suas credênciais para acessar ao sistema</span>
-        </div>
+      <div className="container">
+        <section>
+          <div className="img-holder">
+            <img src={require('../../assets/images/igreja.jpg')} alt="" />
+            <span className="liturgia">Liturgia</span>
+            <span>Digite suas credênciais para acessar ao sistema</span>
+          </div>
 
-        <div className="form-holder">
-          <Formik
-            initialValues={initialValues}
-            onSubmit={values => login(values)}
-            validationSchema={LoginSchema}
-            validateOnBlur
-          >
-            {({
-              handleSubmit,
-              handleBlur,
-              handleChange,
-              errors,
-              touched,
-              values
-            }) => {
-              return (
-                <Form onSubmit={handleSubmit} className='form'>
-                  <Row>
-                    <Form.Item
-                      // label="Usuário"
-                      required
-                      validateStatus={
-                        errors.user && touched.user ? 'error' : undefined
-                      }
-                      help={touched.user && errors.user}
-                    >
-                      <Input
-                        id="user"
-                        placeholder="Digite seu usuário"
-                        value={values.user}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                      />
+          <div className="form-holder">
+            <Formik
+              initialValues={initialValues}
+              onSubmit={values => login(values)}
+              validationSchema={LoginSchema}
+              validateOnBlur
+            >
+              {({
+                handleSubmit,
+                handleBlur,
+                handleChange,
+                errors,
+                touched,
+                values
+              }) => {
+                return (
+                  <Form onSubmit={handleSubmit} className="form">
+                    <Row>
+                      <Form.Item
+                        // label="Usuário"
+                        required
+                        validateStatus={
+                          errors.user && touched.user ? 'error' : undefined
+                        }
+                        help={touched.user && errors.user}
+                      >
+                        <Input
+                          id="user"
+                          placeholder="Digite seu usuário"
+                          value={values.user}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        />
+                      </Form.Item>
+                    </Row>
+                    <Row>
+                      <Form.Item
+                        // label="Senha"
+                        required
+                        validateStatus={
+                          errors.pin && touched.pin ? 'error' : undefined
+                        }
+                        help={touched.pin && errors.pin}
+                      >
+                        <Input
+                          id="pin"
+                          type="password"
+                          placeholder="Digite sua Senha"
+                          value={values.pin}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        />
+                      </Form.Item>
+                    </Row>
+                    <Form.Item className="btn-holder">
+                      <Button
+                        className="form__btn"
+                        type="primary"
+                        htmlType="submit"
+                        loading={isLoading}
+                      >
+                        Login
+                      </Button>
                     </Form.Item>
-                  </Row>
-                  <Row>
-                    <Form.Item
-                      // label="Senha"
-                      required
-                      validateStatus={
-                        errors.pin && touched.pin ? 'error' : undefined
-                      }
-                      help={touched.pin && errors.pin}
-                    >
-                      <Input
-                        id="pin"
-                        type="password"
-                        placeholder="Digite sua Senha"
-                        value={values.pin}
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                      />
-                    </Form.Item>
-                  </Row>
-                  <Form.Item className='btn-holder'>
-                    <Button
-                      className='form__btn'
-                      type="primary"
-                      htmlType="submit"
-                      loading={isLoading}
-                    >
-                      Login
-                    </Button>
-                  </Form.Item>
-                </Form>
-              )
-            }}
-          </Formik>
-        </div>
-      </section>
-      // <div>
-      //   <input onChange={handleUser} value={formValues.user} />
-      //   <input onChange={handlePin} value={formValues.pin} />
-      //   <button onClick={handleSubmit}>Asda</button>
-      // </div>
+                  </Form>
+                )
+              }}
+            </Formik>
+          </div>
+        </section>
+      </div>
     )
   })
 )

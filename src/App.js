@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite'
 import React from 'react'
 import Routes from './routes'
 import { useStore } from './store/helpers'
+import { DefaultLayout } from './components/DefaultLayout'
 
 const App = observer(() => {
   const { isLoged } = useStore('authStore')
@@ -16,8 +17,9 @@ const App = observer(() => {
   }
   return (
     <>
-      Sou o App
-      <Routes />
+      <DefaultLayout>
+        <Routes />
+      </DefaultLayout>
     </>
   )
 })

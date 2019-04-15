@@ -2,10 +2,11 @@
   box-sizing: border-box;
 }
 
-body {
+.container {
   background-image: url('../../assets/images/login-bg.jpg');
   background-size: cover;
   background-position: center;
+  min-height: 100vh;
 
   display: flex;
   justify-content: center;
