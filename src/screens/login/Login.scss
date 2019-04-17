@@ -44,12 +44,9 @@
         flex-flow: column wrap;
 
         .btn-holder {
-          // margin: 0;
           .form__btn {
             flex-basis: 100%;
             width: 100%;
-            background: rgb(105, 65, 27);
-            border-color: rgb(105, 65, 27);
           }
         }
       }

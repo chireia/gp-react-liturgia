@@ -10,8 +10,6 @@ export const Sidebar = withRouter(props => {
   const [collapsed, setCollapsed] = useState(false)
   const { userName } = useStore('authStore')
 
-  console.log()
-
   return (
     <Sider
       theme="light"
@@ -20,7 +18,7 @@ export const Sidebar = withRouter(props => {
       onCollapse={() => setCollapsed(!collapsed)}
     >
       <div className="logo" />
-      <Logo src={require('../assets/images/igreja.jpg')} />
+      <Logo src={require('../assets/images/igreja.png')} />
       {!collapsed ? <Wellcome>Bem vindo {userName}</Wellcome> : ''}
       <Menu
         theme="light"
@@ -46,6 +44,7 @@ export const Sidebar = withRouter(props => {
 
 const Logo = styled.img`
   width: 100%;
+  padding: 14px;
 `
 const Wellcome = styled.div`
   width: 100%;

@@ -24,8 +24,7 @@ const Login = withRouter(
       <div className="container">
         <section>
           <div className="img-holder">
-            <img src={require('../../assets/images/igreja.jpg')} alt="" />
-            <span className="liturgia">Liturgia</span>
+            <img src={require('../../assets/images/igreja.png')} alt="" />
             <span>Digite suas credênciais para acessar ao sistema</span>
           </div>
 
