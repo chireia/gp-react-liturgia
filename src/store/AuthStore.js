@@ -32,6 +32,7 @@ export default class AuthStore {
       message.success('Logado com sucesso')
       localStorage.setItem('userName', logedUser.userName)
       localStorage.setItem('isLoged', true)
+      this.userName = logedUser.userName
       this.isLoged = true
       this.isLoading = false
     }, 2000)
