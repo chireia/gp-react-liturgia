@@ -6,7 +6,7 @@ import { useStore } from '../store/helpers'
 
 const { Sider } = Layout
 
-export const Sidebar = withRouter(props => {
+export const DefaultSidebar = withRouter(props => {
   const [collapsed, setCollapsed] = useState(false)
   const { userName } = useStore('authStore')
 
@@ -16,6 +16,7 @@ export const Sidebar = withRouter(props => {
       collapsible
       collapsed={collapsed}
       onCollapse={() => setCollapsed(!collapsed)}
+      style={{ boxShadow: '0px 1px 5px 0px #00000010'}}
     >
       <div className="logo" />
       <Logo src={require('../assets/images/igreja.png')} />
@@ -31,10 +32,10 @@ export const Sidebar = withRouter(props => {
             <span>Home</span>
           </Link>
         </Menu.Item>
-        <Menu.Item key="/test">
-          <Link to={'/test'}>
+        <Menu.Item key="/colaboradores">
+          <Link to={'/colaboradores'}>
             <Icon type="desktop" />
-            <span>Test</span>
+            <span>Colaboradores</span>
           </Link>
         </Menu.Item>
       </Menu>

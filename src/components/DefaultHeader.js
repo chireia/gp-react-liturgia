@@ -18,14 +18,14 @@ export const DefaultHeader = observer(() => {
   const AvatarName = (
     // eslint-disable-next-line jsx-a11y/anchor-is-valid
     <a style={{ margin: 16 }}>
-      <Avatar style={{ backgroundColor: '#87d068' }} icon="user" />
+      <Avatar style={{ backgroundColor: '#43B9DF' }} icon="user" />
       <span style={{ margin: 10 }}>{userName}</span>
       <Icon type="down" />
     </a>
   )
 
   return (
-    <Header style={{ background: '#fff', padding: 0, textAlign: 'right' }}>
+    <Header style={{ background: '#fff', padding: 0, textAlign: 'right', boxShadow: '0px 1px 5px 0px #00000010', zIndex: 1 }}>
       <Dropdown overlay={logoffBtn} placement="bottomCenter">
         {AvatarName}
       </Dropdown>
