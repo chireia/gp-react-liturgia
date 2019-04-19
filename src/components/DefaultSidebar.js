@@ -28,13 +28,13 @@ export const DefaultSidebar = withRouter(props => {
       >
         <Menu.Item key="/">
           <Link to={'/'}>
-            <Icon type="pie-chart" />
+            <Icon type="contacts" style={{color: 'green'}}/>
             <span>Home</span>
           </Link>
         </Menu.Item>
         <Menu.Item key="/colaboradores">
           <Link to={'/colaboradores'}>
-            <Icon type="desktop" />
+            <Icon type="user" style={{color: '#00c0ff'}} />
             <span>Colaboradores</span>
           </Link>
         </Menu.Item>
