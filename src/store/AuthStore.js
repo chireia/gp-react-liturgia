@@ -10,9 +10,7 @@ export default class AuthStore {
   isLoading = false
 
   constructor() {
-    getUsers().then(res => {
-      this.userList = res
-    })
+    this.fetchUsers()
   }
 
   // Actions
@@ -36,6 +34,14 @@ export default class AuthStore {
       this.isLoged = true
       this.isLoading = false
     }, 2000)
+  }
+
+  async fetchUsers() {
+    this.isLoading = true
+    await getUsers().then(res => {
+      this.userList = res
+    })
+    this.isLoading = false
   }
 
   logoff = () => {
