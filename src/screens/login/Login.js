@@ -3,7 +3,7 @@ import { Formik } from 'formik'
 import { observer } from 'mobx-react-lite'
 import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-import * as Yup from 'yup'
+import Yup from '../../shared/yup-ptBr'
 import { useStore } from '../../store/helpers'
 import './Login.scss'
 
