@@ -1,12 +1,12 @@
 import firebase from 'firebase/app'
-import config from '../firebaseConfig'
 import 'firebase/database'
+import config from '../firebaseConfig'
 
 firebase.initializeApp(config)
-const db = firebase.database().ref('/users')
+const db = firebase.database()
 
 export async function getUsers() {
-  const result = await db.once('value')
+  const result = await db.ref('users').once('value')
 
   return result.val()
 }

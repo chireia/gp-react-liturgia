@@ -39,7 +39,8 @@ export default class AuthStore {
   async fetchUsers() {
     this.isLoading = true
     await getUsers().then(res => {
-      this.userList = res
+      if(res) this.userList = res
+      else this.userList = {}
     })
     this.isLoading = false
   }
