@@ -109,17 +109,22 @@ export const ColabForm = ({ onSave, initialValues, isLoadingSingle }) => {
                   <ColabFormChecks values={values} />
                 </Form.Item>
               </Row>
-              <Row gutter={28}>
-                <Col span={5}>
-                  <Button htmlType="submit" type="primary">
-                    Salvar
-                  </Button>
-                </Col>
-                <Col span={5}>
-                  <Button onClick={handleReset} type="danger">
-                    Resetar
-                  </Button>
-                </Col>
+              <Row style={{textAlign: 'center'}}>
+                <Button
+                  htmlType="submit"
+                  type="primary"
+                  style={{ marginRight: 14, width: 85 }}
+                >
+                  Salvar
+                </Button>
+
+                <Button
+                  onClick={handleReset}
+                  type="danger"
+                  style={{ width: 85 }}
+                >
+                  Resetar
+                </Button>
               </Row>
             </Form>
           </Spin>

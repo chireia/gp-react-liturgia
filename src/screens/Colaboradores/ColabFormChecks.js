@@ -18,7 +18,7 @@ export const ColabFormChecks = ({ values }) => {
         name="diaDisp.domingo"
         render={arrayHelpers => (
           <>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="domingo"
                 value="manha"
@@ -28,7 +28,7 @@ export const ColabFormChecks = ({ values }) => {
                 Manhã
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="domingo"
                 value="tarde"
@@ -38,7 +38,7 @@ export const ColabFormChecks = ({ values }) => {
                 Tarde
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="domingo"
                 value="noite"
@@ -56,7 +56,7 @@ export const ColabFormChecks = ({ values }) => {
         name="diaDisp.segunda"
         render={arrayHelpers => (
           <>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="segunda"
                 value="manha"
@@ -66,7 +66,7 @@ export const ColabFormChecks = ({ values }) => {
                 Manhã
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="segunda"
                 value="tarde"
@@ -76,7 +76,7 @@ export const ColabFormChecks = ({ values }) => {
                 Tarde
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="segunda"
                 value="noite"
@@ -94,7 +94,7 @@ export const ColabFormChecks = ({ values }) => {
         name="diaDisp.terca"
         render={arrayHelpers => (
           <>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="terca"
                 value="manha"
@@ -104,7 +104,7 @@ export const ColabFormChecks = ({ values }) => {
                 Manhã
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="terca"
                 value="tarde"
@@ -114,7 +114,7 @@ export const ColabFormChecks = ({ values }) => {
                 Tarde
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="terca"
                 value="noite"
@@ -132,7 +132,7 @@ export const ColabFormChecks = ({ values }) => {
         name="diaDisp.quarta"
         render={arrayHelpers => (
           <>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="quarta"
                 value="manha"
@@ -142,7 +142,7 @@ export const ColabFormChecks = ({ values }) => {
                 Manhã
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="quarta"
                 value="tarde"
@@ -152,7 +152,7 @@ export const ColabFormChecks = ({ values }) => {
                 Tarde
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="quarta"
                 value="noite"
@@ -170,7 +170,7 @@ export const ColabFormChecks = ({ values }) => {
         name="diaDisp.quinta"
         render={arrayHelpers => (
           <>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="quinta"
                 value="manha"
@@ -180,7 +180,7 @@ export const ColabFormChecks = ({ values }) => {
                 Manhã
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="quinta"
                 value="tarde"
@@ -190,7 +190,7 @@ export const ColabFormChecks = ({ values }) => {
                 Tarde
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="quinta"
                 value="noite"
@@ -208,7 +208,7 @@ export const ColabFormChecks = ({ values }) => {
         name="diaDisp.sexta"
         render={arrayHelpers => (
           <>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="sexta"
                 value="manha"
@@ -218,7 +218,7 @@ export const ColabFormChecks = ({ values }) => {
                 Manhã
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="sexta"
                 value="tarde"
@@ -228,7 +228,7 @@ export const ColabFormChecks = ({ values }) => {
                 Tarde
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{ textAlign: 'center' }}>
               <Checkbox
                 name="sexta"
                 value="noite"
@@ -246,7 +246,7 @@ export const ColabFormChecks = ({ values }) => {
         name="diaDisp.sabado"
         render={arrayHelpers => (
           <>
-            <Col span={6}>
+            <Col span={6} style={{textAlign: 'center'}}>
               <Checkbox
                 name="sabado"
                 value="manha"
@@ -256,7 +256,7 @@ export const ColabFormChecks = ({ values }) => {
                 Manhã
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{textAlign: 'center'}}>
               <Checkbox
                 name="sabado"
                 value="tarde"
@@ -266,7 +266,7 @@ export const ColabFormChecks = ({ values }) => {
                 Tarde
               </Checkbox>
             </Col>
-            <Col span={6}>
+            <Col span={6} style={{textAlign: 'center'}}>
               <Checkbox
                 name="sabado"
                 value="noite"
