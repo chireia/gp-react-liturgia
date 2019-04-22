@@ -1,10 +1,10 @@
-import AppStore from './AppStore'
 import AuthStore from './AuthStore'
+import ColabStore from './ColabStore'
 
 function createStores() {
   return {
-    appStore: new AppStore(),
-    authStore: new AuthStore()
+    authStore: new AuthStore(),
+    colabStore: new ColabStore()
   }
 }
 
